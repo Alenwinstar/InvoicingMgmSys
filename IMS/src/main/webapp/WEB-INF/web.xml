@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>IMS Created Web Application</display-name>
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet>
+		<!-- 1.1加入Spring-MVC分派者 -->
+		<servlet-name>mvcDispatcher</servlet-name>
+		<!--自訂Spring-MVC分派者名稱 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 1.2指定Spring-MVC組態檔 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:applicationContext-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvcDispatcher</servlet-name>
+		<!--需與上自訂Spring-MVC分派者名稱(黃底)相同-->
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
