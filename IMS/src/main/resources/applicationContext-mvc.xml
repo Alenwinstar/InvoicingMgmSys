@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 3.1引用xsd -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+	<description>Spring MVC</description>
+	<!-- <context:annotation-config /> -->
+	<!-- 3.2指定Spring控制器類別所在套件, 多套件時可用"逗號"隔開 -->
+	<context:component-scan
+		base-package="com.testmaven" /> <!--控制器類別所在套件名稱 -->
+	<!-- 3.3宣告View解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/page/" />
+		<property name="suffix" value=".jsp" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+	</bean>
+<!-- 	<bean id="memberData" -->
+<!-- 		class="com.testmaven.dao.daoImpl.MemberDaoImpl"></bean> -->
+<!-- 	<bean id="memberController" -->
+<!-- 		class="com.testmaven.control.MemberController"></bean> -->
+
+	<!-- hibernate 交給spring託管 使用sqlserver-->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+            <value>com.microsoft.sqlserver.jdbc.SQLServerDriver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:sqlserver://localhost:1433;DatabaseName=IMSDB</value>
+        </property>
+        <property name="username">
+            <value>salogin</value>
+        </property>
+        <property name="password">
+            <value>123456</value>
+        </property>
+	</bean>
+
+	<bean
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.testmaven" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="show_sql">true</prop>
+				<prop key="format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 3.4宣告靜態資源處理者 -->
+	<mvc:default-servlet-handler />
+	<!-- 對靜態文件的訪問 -->
+	<!-- <mvc:resources location="/static/" mapping="/resource/**" /> -->
+	<!--註解驅動，以使得訪問路徑與方法的匹配可以通過註解配置 -->
+	<mvc:annotation-driven />
+</beans>
+
+

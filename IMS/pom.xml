@@ -17,6 +17,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <javax.mail>1.4.7</javax.mail>
+    <mssql.jbdc>6.2.2.jre8</mssql.jbdc>
   </properties>
 
   <dependencies>
@@ -30,7 +32,7 @@
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
-			<version>1.4.7</version>
+			<version>${javax.mail}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -87,10 +89,16 @@
 			<version>1.2.2</version>
 		</dependency>
 		<!-- mysql資料庫的驅動包 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>5.1.47</version> -->
+<!-- 		</dependency> -->
+		<!-- JDBC___mssqlserver 驅動包 -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.47</version>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>${mssql.jbdc}</version>
 		</dependency>
   </dependencies>
 
