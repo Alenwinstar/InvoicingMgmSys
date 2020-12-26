@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "web-ims"
+  "defaultProject": "web-ims",
+  "cli": {
+    "analytics": "56d3795c-db96-4164-bd74-e6d6cd5bdf01"
+  }
 }
