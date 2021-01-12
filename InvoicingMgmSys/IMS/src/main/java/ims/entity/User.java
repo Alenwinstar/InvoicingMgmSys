@@ -5,7 +5,7 @@
  * @time 2021.1.8
  * @version 1v
  */
-package entity;
+package ims.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

@@ -1,10 +1,10 @@
 /**
- * 角色程序資料表
+ * 角色資料表
  * @author dan
  * @time 2021.1.8
  * @version 1v
  */
-package entity;
+package ims.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -12,34 +12,26 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
-public class Role_program implements Serializable {
+public class Role implements Serializable {
 
 	@Id
-	@Column(name="Role_program_id")
-	private String Role_program_id;// nvarchar(50) NOT NULL PRIMARY KEY,
-	
 	@Column(name="Role_id")
-    private String Role_id;//         nvarchar(50) NULL,
-
-	@Column(name="Program_id")
-    private String Program_id;//      nvarchar(50) NULL,
-
+	private String Role_id;//     nvarchar(50) NOT NULL PRIMARY KEY,
+	
+	@Column(name="Role_name")
+    private String Role_name;//   nvarchar(50) NULL,
+	
+	@Column(name="Status")
+    private String Status;//      varchar(2) NULL,
+	
 	@Column(name="Crt_user_id")
-    private String Crt_user_id;//     nvarchar(50) NULL,
-
+    private String Crt_user_id;// nvarchar(50) NULL,
+	
 	@Column(name="Crt_time")
-    private Timestamp Crt_time;//        datetime NOT NULL,
-
+    private Timestamp Crt_time;//    datetime NOT NULL,
+	
 	@Column(name="Upd_time")
-    private Timestamp Upd_time;//        datetime NOT NULL,
-
-	public String getRole_program_id() {
-		return Role_program_id;
-	}
-
-	public void setRole_program_id(String role_program_id) {
-		Role_program_id = role_program_id;
-	}
+    private Timestamp Upd_time;//    datetime NOT NULL
 
 	public String getRole_id() {
 		return Role_id;
@@ -49,12 +41,20 @@ public class Role_program implements Serializable {
 		Role_id = role_id;
 	}
 
-	public String getProgram_id() {
-		return Program_id;
+	public String getRole_name() {
+		return Role_name;
 	}
 
-	public void setProgram_id(String program_id) {
-		Program_id = program_id;
+	public void setRole_name(String role_name) {
+		Role_name = role_name;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
 	}
 
 	public String getCrt_user_id() {
