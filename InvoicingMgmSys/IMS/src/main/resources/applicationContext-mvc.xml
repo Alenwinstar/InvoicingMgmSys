@@ -23,13 +23,9 @@
 		<property name="suffix" value=".jsp" />
 		<property name="contentType" value="text/html;charset=UTF-8" />
 	</bean>
-<!-- 	<bean id="memberData" -->
-<!-- 		class="com.testmaven.dao.daoImpl.MemberDaoImpl"></bean> -->
-<!-- 	<bean id="memberController" -->
-<!-- 		class="com.testmaven.control.MemberController"></bean> -->
-	<bean id="test" class="ims.dao.Test"></bean>
-	<bean id="testController" class="ims.controller.TestController"></bean>
-	<bean id="sqlConnectionUtil" class="ims.utils.SQLConnectionUtil"></bean>
+<!-- 	<bean id="test" class="ims.dao.Test"></bean> -->
+<!-- 	<bean id="testController" class="ims.controller.TestController"></bean> -->
+<!-- 	<bean id="sqlConnectionUtil" class="ims.utils.SQLConnectionUtil"></bean> -->
 	<!-- hibernate 交給spring託管 使用sqlserver-->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">

@@ -5,13 +5,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 import ims.utils.SQLConnectionUtil;
 
 @Service
+@Configuration
 public class Test {
 
 	@Autowired
