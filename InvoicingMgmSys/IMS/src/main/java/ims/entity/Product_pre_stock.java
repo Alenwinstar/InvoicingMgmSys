@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
-public class Product_Pre_stock implements Serializable {
+public class Product_pre_stock implements Serializable {
 
 	@Id
 	@Column(name="Pre_stock_id")

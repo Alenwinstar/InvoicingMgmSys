@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import ims.utils.SQLConnectionUtil;
 
-@Service
 @Configuration
 public class Test {
 
