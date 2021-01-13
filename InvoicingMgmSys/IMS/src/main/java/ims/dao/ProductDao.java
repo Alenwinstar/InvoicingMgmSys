@@ -1,5 +1,8 @@
 package ims.dao;
 
+import java.util.List;
+
+import ims.entity.Product;
 
 public interface ProductDao {
 
@@ -7,4 +10,6 @@ public interface ProductDao {
 	// 刪除
 	// 修改
 	// 查詢
+	public List<Product> getAllData();
+	public Product getSpecialData(String productId);
 }

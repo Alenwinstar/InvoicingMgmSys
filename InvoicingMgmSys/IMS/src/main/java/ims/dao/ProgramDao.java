@@ -1,5 +1,9 @@
 package ims.dao;
 
+import java.util.List;
+
+import ims.entity.Product_stock;
+import ims.entity.Program;
 
 public interface ProgramDao {
 
@@ -7,4 +11,6 @@ public interface ProgramDao {
 	// 刪除
 	// 修改
 	// 查詢
+	public List<Program> getAllData();
+	public Program getSpecialData(String programId);
 }
