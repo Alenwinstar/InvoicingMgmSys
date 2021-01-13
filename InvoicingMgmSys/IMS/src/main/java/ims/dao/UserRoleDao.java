@@ -1,5 +1,6 @@
 package ims.dao;
 
+
 public interface UserRoleDao {
 
 	// 新增

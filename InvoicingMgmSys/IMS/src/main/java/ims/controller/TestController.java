@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ims.dao.Test;
 
 
-
 @Controller
 @RequestMapping("test")
 public class TestController {

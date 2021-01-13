@@ -1,5 +1,6 @@
 package ims.dao;
 
+
 public interface ProductDao {
 
 	// 新增

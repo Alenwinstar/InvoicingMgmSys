@@ -1,5 +1,6 @@
 package ims.dao;
 
+
 public interface CategoryDao {
 
 	// 新增
