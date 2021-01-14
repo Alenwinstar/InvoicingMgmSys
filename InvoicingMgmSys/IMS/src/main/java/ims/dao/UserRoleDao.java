@@ -1,5 +1,9 @@
 package ims.dao;
 
+import java.util.List;
+
+import ims.entity.User;
+import ims.entity.User_role;
 
 public interface UserRoleDao {
 
@@ -7,4 +11,6 @@ public interface UserRoleDao {
 	// 刪除
 	// 修改
 	// 查詢
+	public List<User_role> getAllData();
+	public User_role getSpecialData(String userRoleId);
 }
