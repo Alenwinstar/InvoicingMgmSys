@@ -27,6 +27,6 @@ public interface LoginService {
 	/**
 	 * 1.使用取得的userId 去取得該user可用的program
 	 */
-	public List<Program> getUseProgram();
+	public List<Program> getUseProgram(String userId);
 	
 }

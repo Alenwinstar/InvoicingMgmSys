@@ -25,6 +25,7 @@ public class LoginEntrance {
 			
 			String userId = userData.getUser_id();
 			// 2. 用取得的userData裡的userId去找對應roleId(多筆)
+			
 			// 3. 使用roleId，去找對應programId(多筆)
 			// 4. 使用programId， 去找對應program_name
 			

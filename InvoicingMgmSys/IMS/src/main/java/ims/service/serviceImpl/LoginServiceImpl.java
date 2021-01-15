@@ -28,7 +28,7 @@ public class LoginServiceImpl implements LoginService {
 	 * 1.使用取得的userId 去取得該user可用的program
 	 */
 	@Override
-	public List<Program> getUseProgram() {
+	public List<Program> getUseProgram(String userId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
