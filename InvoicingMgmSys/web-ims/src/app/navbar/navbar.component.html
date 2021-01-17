@@ -1,0 +1,6 @@
+<mat-toolbar  [style.background] = "(login$ | async) ? 'darkviolet' : 'seagreen'" class="navbar">
+  <a mat-button routerLink="/">IMS進銷存管理系統</a>
+  <span class="to-right"></span>
+  <a mat-button *ngIf="!(login$ | async)" routerLink="/user/login">會員登入</a>
+  <a mat-button *ngIf="login$ | async" (click)="logout()">會員登出</a>
+</mat-toolbar>
