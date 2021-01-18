@@ -11,6 +11,6 @@ public interface UserRoleDao {
 	// 刪除
 	// 修改
 	// 查詢
-	public List<User_role> getAllData();
+	public List<User_role> getAllData(String roleId);
 	public User_role getSpecialData(String userRoleId);
 }
