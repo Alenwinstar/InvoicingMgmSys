@@ -11,6 +11,6 @@ public interface ProgramDao {
 	// 刪除
 	// 修改
 	// 查詢
-	public List<Program> getAllData();
+	public List<Program> getAllData(List<String> roleIdList);
 	public Program getSpecialData(String programId);
 }
