@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import ims.dao.daoImpl.ProgramDaoImpl;
 import ims.dao.daoImpl.UserDaoImpl;
+import ims.dao.daoImpl.UserRoleDaoImpl;
 import ims.entity.Program;
 import ims.entity.User;
+import ims.entity.User_role;
 import ims.service.LoginService;
 
 public class LoginServiceImpl implements LoginService {
@@ -14,13 +17,30 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	public UserDaoImpl userDaoImpl;
 	
+	@Autowired
+	public UserRoleDaoImpl userRoleDaoImpl;
+	
+	@Autowired
+	public ProgramDaoImpl programDaoImpl;
 	/**
 	 * 1.驗證帳號是否存在
 	 * 2.密碼是否正確
+	 * return null: 代表1. 帳號錯誤找不到資料
+	 * 					2. 密碼錯誤
 	 */
 	@Override
 	public User checkAccount(String userName, String pwd) {
-		// TODO Auto-generated method stub
+		// 透過USER取得該帳號資料
+		User userdata = userDaoImpl.getSpecialData(userName);
+		// 判斷是否有該資料
+		if(userdata != null) {
+			//　判斷密碼是否正確
+			if(userdata.getPwd().equals(pwd)) {
+				return userdata;
+			}
+			else 
+				return null;
+		}
 		return null;
 	}
 
@@ -29,8 +49,27 @@ public class LoginServiceImpl implements LoginService {
 	 */
 	@Override
 	public List<Program> getUseProgram(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Program> programList = null;
+		List<User_role> roleList = null;
+		List<String> roleIdList = null;
+		
+		// 用userId去找多筆roleId
+		roleList = userRoleDaoImpl.getAllData(userId);
+		
+		// 用roleId去找多筆的Program
+		for(User_role value: roleList) {
+			String roleId = value.getRole_id();// 取得角色id
+			// 先將roleId放入List裡面
+			roleIdList.add(roleId);
+		}
+		
+		// 透過roleId的List去查找所有program物件
+		programList = programDaoImpl.getAllData(roleIdList);
+//		if(programList != null) {
+//			
+//		}
+//		return null;
+		return programList;
 	}
 
 }

@@ -16,3 +16,13 @@
 	使用programId，去找對應program_name
 	**/
   select * from [dbo].[Program]
+
+
+
+
+select distinct A.* from [dbo].[Program] as A
+join 
+(select B.* from [dbo].[Role_program] as B
+left join [dbo].[Role] as C
+on B.role_id = C.Role_id where B.Role_id='1111' or B.Role_id='1234') as D
+on D.Program_id = A.Program_id

@@ -24,6 +24,7 @@ public class LoginEntrance {
 		User userData = null;
 		List<Program> programList = null;
 		// 1. 帳號密碼去DB查詢是否存在
+		// 2. 若為錯誤的密碼也會回null
 		if((userData = loginServiceImpl.checkAccount(userName, pwd)) != null) {
 			
 			String userId = userData.getUser_id();
@@ -32,7 +33,7 @@ public class LoginEntrance {
 			// 4. 使用programId， 去找對應program_name
 			programList = loginServiceImpl.getUseProgram(userId);
 			model.addAttribute("List", programList);
-			
+			model.addAttribute("error", null);
 		}
 		else {
 			model.addAttribute("error", "error");
