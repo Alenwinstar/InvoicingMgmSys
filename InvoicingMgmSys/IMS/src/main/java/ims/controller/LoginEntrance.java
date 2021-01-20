@@ -33,7 +33,7 @@ public class LoginEntrance {
 			// 4. 使用programId， 去找對應program_name
 			programList = loginServiceImpl.getUseProgram(userId);
 			model.addAttribute("List", programList);
-			
+			model.addAttribute("error", null);
 		}
 		else {
 			model.addAttribute("error", "error");
