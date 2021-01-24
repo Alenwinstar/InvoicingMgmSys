@@ -3,7 +3,7 @@ let service = {};
 service.authenticate = function(username, password) {
   // mockup user
   let user = {
-    username: 'alen',
+    username: 'alenhuang',
     password: '123456'
   }
 

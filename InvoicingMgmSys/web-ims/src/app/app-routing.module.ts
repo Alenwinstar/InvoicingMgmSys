@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '',
    children: [
          { path: 'ImsHome', component: HomeComponent },
          { path: 'user', redirectTo: '/user', pathMatch: 'full'},
+         { path: 'member', loadChildren: './member/member.module#MemberModule', canLoad: [AuthGuard] },
          { path: '', redirectTo: '/ImsHome', pathMatch: 'full' },
              ]
   }
@@ -16,7 +18,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(
     routes,
-    { enableTracing: true}
+    // { enableTracing: true}
     )],
   exports: [RouterModule]
 })
